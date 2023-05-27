@@ -1,0 +1,28 @@
+.title{
+  text-align: center;
+}
+form{
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  max-width: 400px;
+  margin: 0 auto;
+}
+
+.input,.label,.btn{
+  display: block;
+  margin: 10px 0;
+}
+.input{
+  padding: 5px;
+  outline: none;
+  border: 1px solid gray;
+}
+.btn{
+  cursor: pointer;
+  padding: 10px 0;
+}
+.error{
+  color: red;
+  text-align: center;
+}
