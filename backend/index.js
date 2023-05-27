@@ -17,7 +17,7 @@ if (process.env.NODE_ENV==="development") {
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = dirname(__filename);
 
-app.use(express.static(join(__dirname,"../frontend/public/")))
+app.use(express.static(join(__dirname,"../frontend/build/")))
 app.post("/api/seats",async(req,res)=>{
     try {
         console.log(req.body)
