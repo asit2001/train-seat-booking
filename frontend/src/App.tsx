@@ -10,7 +10,13 @@ function App() {
   useEffect(()=>{
     fetch(`${process.env.REACT_APP_URL}/api/seats`)
     .then(res=>res.json())
-    .then(data=>setSeats(data));
+    .then((data:SeatsType[])=>{
+
+      data.sort((a,b)=>{
+        return a.seat_num - b.seat_num
+      })
+      setSeats(data);
+    });
   },[])
 
 
@@ -25,7 +31,11 @@ function App() {
       });
       const data = (await res.json());
       if (res.ok) {
-      setSeats(data as SeatsType[]);
+        const d = data as SeatsType[]
+        d.sort((a,b)=>{
+          return a.seat_num - b.seat_num
+        })
+      setSeats(d);
     }else{
       setError(data.message)
     }

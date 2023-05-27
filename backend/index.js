@@ -4,8 +4,7 @@ import cors from 'cors'
 import reserveSeats from "./controller/bookingController.js";
 import getAllSeats  from "./controller/getAllSeats.js";
 import connectDB from "./db/connect.js";
-import { fileURLToPath } from 'url';
-import { dirname, join } from 'path';
+
 dotenv.config();
 connectDB()
 const app = express();
@@ -14,10 +13,7 @@ app.use(express.json())
 if (process.env.NODE_ENV==="development") {
     app.use(cors());
 }
-const __filename = fileURLToPath(import.meta.url);
-const __dirname = dirname(__filename);
 
-app.use(express.static(join(__dirname,"../frontend/build/")))
 app.post("/api/seats",async(req,res)=>{
     try {
         console.log(req.body)
